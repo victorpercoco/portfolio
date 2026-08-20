@@ -1,0 +1,319 @@
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
+  line-height: 1.15;
+  color: black;
+  text-align: left;
+}
+
+/* NAME */
+.name {
+  display: inline-block;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 1px 1px;
+  font-size: 50px;
+  margin:  0px 0 0 -6px;
+}
+
+/* BIO */
+p {
+  display: inline-block;
+  margin: 10px 0 16px 0;
+  line-height: 1.15;
+    max-width:500px;
+    text-align:left;
+}
+
+.contact-link {
+  color: black;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.name:hover {
+animation: colorFlash 1.2s steps(1) infinite;
+}
+@keyframes colorFlash {
+  0% {
+    color: rgb(0, 153, 255)
+  }
+
+  33.33% {
+    color: rgb(234, 57, 193);
+  }
+
+  66.66% {
+    color: #00e054
+  }
+
+  100% {
+    color: rgb(0, 153, 255);
+  }
+}
+
+/* CATEGORY COLORS (BIO ONLY) */
+.bio-graphic { color: rgb(0, 153, 255); }
+.bio-object { color: #00e054; } /* neon green */
+.bio-writing { color: rgb(234,57,193); }
+
+.bio-graphic,
+.bio-object,
+.bio-writing {
+  cursor: pointer;
+  padding: 1px 1px;
+  display: inline-block;
+}
+
+.bio-graphic:hover {
+  background: rgb(0, 153, 255);
+  color: white;
+}
+
+.bio-object:hover {
+  background: #00e054;
+  color: white;
+}
+
+.bio-writing:hover {
+  background: rgb(234, 57, 193);
+  color: white;
+}
+
+.bio-graphic.active {
+  background: rgb(0, 153, 255);
+  color: white;
+}
+
+.bio-object.active {
+  background: #00e054;
+  color: white;
+}
+
+.bio-writing.active {
+  background: rgb(234, 57, 193);
+  color: white;
+}
+
+/* LIST */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(11, auto);
+  grid-auto-columns: max-content;
+
+  column-gap: 48px;
+  row-gap: 4px;
+}
+
+li {
+  padding: 1px;
+}
+
+.list {
+  font-size: 18px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
+li.graphic a {
+  color: rgb(0, 153, 255);
+}
+
+li.object a {
+  color: #00e054;
+}
+
+li.writing a {
+  color: rgb(234, 57, 193);
+}
+a:hover {
+  color: inherit;
+}
+
+/* HOVER TEXT INVERSION */
+li:hover a {
+  color: white;
+}
+
+/* CATEGORY HOVER BACKGROUNDS (ONLY ON ROW) */
+li.graphic:hover {
+  background: rgb(0, 153, 255);
+}
+
+li.object:hover {
+  background: #00e054;
+}
+
+li.writing:hover{
+  background: rgb(234, 57, 193);
+}
+
+.spacer {
+  height: 40px;
+}
+
+/* UNDERLINE "BELOW" */
+body.list-mode #below {
+padding: 0px 0px;
+  text-decoration: underline;
+}
+
+body.elsewhere-mode #elsewhere {
+  padding: 0px 0px;
+  text-decoration: underline;
+}
+
+p {
+  margin-bottom: 60px; /* adjust as needed */
+}
+
+body.elsewhere-mode ul {
+  display: none;
+}
+
+/* CROSS-HOVER */
+#below,
+#elsewhere {
+  cursor: pointer;
+}
+
+/* hover inactive state */
+body.list-mode #elsewhere:hover,
+body.elsewhere-mode #below:hover {
+  text-decoration: underline;
+}
+
+/* LAYOUT SWITCH */
+/* LIST MODE */
+body.list-mode .list {
+  display: block;
+}
+
+body.list-mode .gallery {
+  display: none;
+}
+
+/* ELSEWHERE MODE */
+body.elsewhere-mode .list {
+  display: none;
+}
+
+body.elsewhere-mode .gallery {
+  column-count: 4;
+  column-gap: 10px;
+}
+
+.gallery-item {
+  display: block;
+  break-inside: avoid;
+  margin-bottom: 10px;
+}
+
+/* GALLERY IMAGES */
+.gallery img {
+  width: 100%;
+  display: block;
+}
+
+.gallery-item {
+  display: block;
+}
+
+.gallery-item.graphic img:hover {
+  outline: 4px solid rgb(0, 153, 255);
+  outline-offset: 2px;
+}
+
+.gallery-item.object img:hover {
+  outline: 4px solid #00e054;
+  outline-offset: 2px;
+}
+
+.gallery-item.writing img:hover {
+  outline: 4px solid rgb(234, 57, 193);
+  outline-offset: 2px;
+}
+
+#badge-wrapper {
+  position: fixed;
+  top: 2%;
+  right: 5px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+#badge {
+  width: 125px;
+  transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+#badge:hover {
+  transform: scale(1.1);
+}
+
+/* when in gallery / elsewhere */
+body.elsewhere-mode #badge {
+  transform: rotateY(180deg);
+}
+
+  @media (max-width: 768px) {
+
+  .name {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+
+    #badge-wrapper {
+  top: 33%;
+  right: 9px;
+  z-index: 9999;
+  pointer-events: auto;
+    }
+
+     #badge {
+      width: 100px;
+       }
+
+body.elsewhere-mode .gallery{
+  column-count: 1;
+  column-gap: 10px;
+}
+
+body.elsewhere-mode #badge {
+  transform: rotateY(180deg);
+}
+
+ul {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    row-gap: 4px;
+    column-gap: 0;
+
+}
+}

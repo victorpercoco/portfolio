@@ -1,0 +1,314 @@
+body {
+  margin-top: 10px;
+  padding-top: 10px;
+  margin-right: -10px;
+  padding-right: 10px;
+  margin-left: -20px;
+  padding-left: 10px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+  color: black;
+}
+
+.header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  align-items: left;
+
+  z-index: 999;
+  background: white;
+}
+
+.header-left {
+    text-align: left;
+}
+
+.project-nav {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+     display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.project-nav:hover {
+   text-decoration: underline;
+    color: black;
+}
+
+.project-gallery {
+  width: max-content;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  padding: 0 10px;
+  margin-top: 90px;
+
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: auto;
+}
+
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  width: max-content; /* critical */
+  padding: 0 10px;
+}
+
+.column {
+    width: var(--column-width);
+    flex: 0 0 auto;
+}
+
+.panel.text p {
+  margin: 0;
+  max-width: 32ch;
+  line-height: 1.15;
+}
+
+.project-gallery {
+  scroll-snap-type: x mandatory;
+}
+
+.page {
+  padding: 0 10px;
+}
+
+/* BIO */
+p {
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+}
+
+/* NAME */
+.name {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 1px 1px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 50px;
+  margin:  0px 0 0 -6px;
+}
+
+.project-title {
+  display: inline-block;
+  font-size: 30px;
+  margin: -8px 0 0 0;
+  max-width: 100%;
+  white-space: normal;
+}
+
+#badge-wrapper {
+  position: fixed;
+  top: 2%;
+  right: 5px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+#badge {
+  width: 125px;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+#badge:hover {
+  transform: rotateY(180deg)
+}
+
+
+/* hover = active button feel */
+.name:hover {
+animation: colorFlash 1.2s steps(1) infinite;
+}
+@keyframes colorFlash {
+  0% {
+    color: rgb(0, 153, 255)
+  }
+
+  33.33% {
+    color: rgb(234, 57, 193);
+  }
+
+  66.66% {
+    color: #00e054
+  }
+
+  100% {
+    color: rgb(0, 153, 255);
+  }
+}
+
+.graphic-title {
+  color: rgb(0, 153, 255);
+}
+
+.object-title {
+  color: #00e054;
+}
+
+.writing-title {
+  color: rgb(234, 57, 193);;
+}
+
+.project-gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+:root {
+  --column-width: 28vw;
+}
+
+.project-gallery img,
+.panel.text {
+  width: var(--column-width);
+  flex: 0 0 auto;
+}
+
+.project-gallery img {
+  height: auto;
+  display: block;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.panel.text p {
+  margin: 0;
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  max-width: 32ch;
+}
+
+img.fullwindow {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  object-fit: contain !important;
+
+  transform: none !important;
+
+  z-index: 999999 !important;
+
+  cursor: zoom-out;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9998;
+  display: none;
+}
+
+#overlay.active {
+  display: block;
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+
+  body {
+    margin-left: -20px;
+    margin-right: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow-x: clip;
+  }
+
+  .header {
+    position: fixed;
+    top: -10px;
+    left: 10px;
+    width: 100%;
+    box-sizing: border-box;
+
+    z-index: 999;
+    background: white;
+    padding: 10px 0;
+  }
+
+  .project-gallery {
+    margin-top: 120px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-y: visible;
+    display: flex;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --column-width: 100%;
+  }
+
+  .track {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #badge-wrapper {
+  top: 33%;
+  right: 9px;
+  z-index: 9999;
+  pointer-events: auto;
+    }
+
+    #badge {
+      width: 100px;
+    transform: rotateY(180deg);
+    transition: none;
+    cursor: pointer;
+  }
+
+  #badge-wrapper,
+#badge {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.project-title {
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+}
