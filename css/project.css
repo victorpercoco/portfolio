@@ -71,12 +71,6 @@ body {
     flex: 0 0 auto;
 }
 
-.panel.text p {
-  margin: 0;
-  max-width: 32ch;
-  line-height: 1.15;
-}
-
 .project-gallery {
   scroll-snap-type: x mandatory;
 }
@@ -196,6 +190,7 @@ animation: colorFlash 1.2s steps(1) infinite;
   line-height: 1.15;
   overflow-wrap: break-word;
   max-width: 32ch;
+  text-wrap: pretty;
 }
 
 img.fullwindow {
